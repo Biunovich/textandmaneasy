@@ -2,14 +2,8 @@
 void main()
 {
 	WINDOW *win1 , *win2, *menu;
-	winlock = TRUE;
-	ptr1=ptr2=1;
-	sprintf(path1,"/");
-	sprintf(path2,"/");
-	shift1=shift2=0;
 	int ch;
 	initscr();
-	chdir("/");
 	cbreak();
 	refresh();
 	noecho();
@@ -34,7 +28,7 @@ void main()
 		menu = newwin(3,COLS,LINES -3,0);
 		box(menu,0,0);
 		wbkgd(menu,COLOR_PAIR(2));
-		mvwprintw(menu,1,1,"F1 - CHANGE WINDOW | F4 - QUIT");
+		mvwprintw(menu,1,1,"F1 - CHANGE WINDOW | F2 - COPY (FROM LEFT TO RIGHT) | F4 - QUIT");
 		wrefresh(menu);
 	}
 	init_windows(win1,win2);
@@ -52,6 +46,9 @@ void main()
 			break;
 			case KEY_DOWN:
 			step_down(win1,win2);
+			break;
+			case KEY_F(2):
+			copy_file(win1,win2);
 			break;
 		}
 	}

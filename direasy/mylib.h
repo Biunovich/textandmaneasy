@@ -5,7 +5,9 @@
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include <sys/stat.h>
+#include <sys/mman.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <string.h>
@@ -19,3 +21,4 @@ void init_windows(WINDOW * win1,WINDOW * win2);
 void change_win(WINDOW * win1,WINDOW * win2);
 void step_down(WINDOW *win1,WINDOW * win2);
 void change_dir(WINDOW *win1,WINDOW * win2);
+void copy_file(WINDOW *win1,WINDOW *win2);

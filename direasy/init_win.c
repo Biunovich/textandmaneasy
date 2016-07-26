@@ -2,6 +2,12 @@
 void init_windows(WINDOW *win1,WINDOW *win2)
 {
 	int i = 0,j;
+	winlock = TRUE;
+	ptr1=ptr2=1;
+	sprintf(path1,"/");
+	sprintf(path2,"/");
+	chdir("/");
+	shift1=shift2=0;
 	dir = opendir("/");
 	struct dirent * entry;
 	while ((entry = readdir(dir)) != NULL)
